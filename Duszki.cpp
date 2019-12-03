@@ -1,4 +1,14 @@
 #include <iostream>
+#include <cmath>
+#include <ctime>
+#include <cstdlib>
+#include <Windows.h>
+#include <cctype>
+#include <cstring>
+#include <cstdio>
+#include <cctype>
+#include <clocale>
+#include <cstdlib>
 
 #include "WartosciStale.h"
 
@@ -175,6 +185,7 @@ void Duszki::RandomDirection() {
 	do {
 		
 		do {
+
 			dir = CONSTOL_CHARS[rand() % 4];
 		} while (dir == dirOpp);
 	} while (TestForCollision() == true);

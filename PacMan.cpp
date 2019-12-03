@@ -2,6 +2,14 @@
 #include <iomanip>
 //#include <conio.h>
 #include <Windows.h>
+#include <cctype>
+#include <cstring>
+#include <cstdio>
+#include <cctype>
+#include <clocale>
+#include <tgmath.h>
+#include <math.h>
+#include <stdafx.h>
 
 #include "WartosciStale.h"
 
@@ -48,7 +56,7 @@ void PacMan::Move() {
 void PacMan::GetDirection() {
 	dir = 'x';
 	if (_kbhit()) {
-		dir = tolower(_getch());
+		dir = std::ctype::tolower(_getch());
 	}
 	if (!strchr(CONSTOL_CHARS, dir)) {
 		dir = dirOld;
@@ -72,7 +80,6 @@ bool PacMan::TestForCollision() {
 		}
 		break;
 	case 'd':
-		// if travelling through the tunnel
 		if (x == maxWidth - 1) {
 			x = 0;
 			icon = PACMAN_RUCHY[3];

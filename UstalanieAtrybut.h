@@ -7,6 +7,6 @@ void SetSizeGame(int, int);
 void SetVisibleCursor(bool);
 void SetScreenColor(int);
 void SetPosCursor(int, int);
-void SetColCursor(int);
+void SetTextColor(int);
 
 #endif;
