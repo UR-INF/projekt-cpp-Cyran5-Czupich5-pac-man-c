@@ -9,6 +9,7 @@
 #include <cctype>
 #include <clocale>
 #include <cstdlib>
+#include <random>
 
 #include "WartosciStale.h"
 
@@ -161,6 +162,8 @@ void Duszki::Move(int playerY, int playerX) {
 }
 
 void Duszki::TargetObject(bool favorableDirs[4]) {
+	std::uniform_int_distribution<int> d(0, 100);
+	std::random_device rd1;
 	int good = 0;
 	char goodDirs[4] = { ' ',' ',' ',' ' };
 	for (int i = 0; i < 4; ++i) {
@@ -174,19 +177,21 @@ void Duszki::TargetObject(bool favorableDirs[4]) {
 		RandomDirection();
 	}
 	else {
-		dir = goodDirs[rand() % good];
+		dir = goodDirs[d(rd1) % good];
 		ChangeCoords();
 	}
 }
 
 void Duszki::RandomDirection() {
 	GetOpposite();
+	std::uniform_int_distribution<int> d(0, 100);
+	std::random_device rd1;
 	
 	do {
 		
 		do {
 
-			dir = CONSTOL_CHARS[rand() % 4];
+			dir = CONSTOL_CHARS[d(rd1) % 4];
 		} while (dir == dirOpp);
 	} while (TestForCollision() == true);
 	ChangeCoords();

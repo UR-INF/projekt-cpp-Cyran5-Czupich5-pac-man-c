@@ -7,9 +7,8 @@
 #include <cstdio>
 #include <cctype>
 #include <clocale>
-#include <tgmath.h>
-#include <math.h>
-#include <stdafx.h>
+#include <cmath>
+#include <random>
 
 #include "WartosciStale.h"
 
