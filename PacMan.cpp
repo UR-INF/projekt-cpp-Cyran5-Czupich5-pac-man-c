@@ -23,7 +23,7 @@ void PacMan::Move() {
 	else {
 		GetDirection();
 		if (TestForCollision() == false) {
-			SetCursorPosition(yOld, xOld);
+			SetPosCursor(yOld, xOld);
 			cout << game->GetLevel(yOld, xOld);
 			if (game->GetLevel(y, x) != ' ') {
 				int scoreInc;
@@ -107,7 +107,7 @@ void PacMan::PrintScore(int scoreInc) {
 	}
 	score += scoreInc;
 	SetTextColor(WHITE);
-	SetCursorPosition(-2, 0);
+	SetPosCursor(-2, 0);
 	if (score == 0) {
 		cout << setw(7) << "00";
 	}
@@ -122,7 +122,7 @@ void PacMan::PrintScore(int scoreInc) {
 
 void PacMan::PrintLives() {
 	SetTextColor(color);
-	SetCursorPosition(maxHeight, 2);
+	SetPosCursor(maxHeight, 2);
 	for (int i = 1; i < lives; ++i) {
 		cout << PACMAN_RUCHY[1] << " ";
 	}
@@ -141,11 +141,11 @@ void PacMan::PrintKillScore() {
 		killX = WITHOUT_COLISION_TILES - length;
 	}
 	SetTextColor(CYAN);
-	SetCursorPosition(y, killX);
+	SetPosCursor(y, killX);
 	cout << scoreInc;
 	PrintScore(scoreInc);
 	Sleep(750);
-	SetCursorPosition(y, killX);
+	SetPosCursor(y, killX);
 	for (int i = killX; i < killX + length; ++i) {
 		SetTextColor(DARK_BLUE);
 		if (game->GetLevel(y, i) == char(250)) {
@@ -183,11 +183,11 @@ void PacMan::Dead() {
 
 void PacMan::Show() {
 	SetTextColor(color);
-	SetCursorPosition(y, x);
+	SetPosCursor(y, x);
 	cout << icon;
 }
 
 void PacMan::Hide() {
-	SetCursorPosition(y, x);
+	SetPosCursor(y, x);
 	cout << game->GetLevel(y, x);
 }

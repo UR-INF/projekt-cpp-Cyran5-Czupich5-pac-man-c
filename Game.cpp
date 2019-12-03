@@ -1,5 +1,6 @@
 #include <iostream>
 #include <Windows.h>
+#include <WinDef.h>
 
 #include "WartosciStale.h"
 
@@ -42,7 +43,6 @@ void Game::MainLoop() {
 	bool gameOver = false;
 	for (int levelNum = 1; levelNum <= 255; ++levelNum) {
 		LoadLevel();
-		// while there are still dots on the screen,
 		while (gracz->GetLeft() != 0) {
 			gracz->Move();
 			CheckForDeath();
@@ -262,7 +262,6 @@ void Game::PrintGameOver() {
 }
 
 void Game::MoveGhosts() {
-	// check for ghost mode changes
 	if (gracz->GetSuper() == SUPER_MAX) {
 		gracz->SetKillCount(0);
 		for (int i = 0; i < 4; ++i) {

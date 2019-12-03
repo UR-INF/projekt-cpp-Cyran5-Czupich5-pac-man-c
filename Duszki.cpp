@@ -70,11 +70,9 @@ void Duszki::Move(int playerY, int playerX) {
 				color = colorInit;
 				mode = 'e';
 				wait = GHOST_MAX;
-				icon = DUSZEK_RUCHY;
+				icon = DUSZEK_IKONA;
 			}
 			break;
-			// if 'scattering'
-			// move in a random direction
 		case 's':
 			GetOpposite();
 			if (modeOld == 'e') {
@@ -263,7 +261,7 @@ void Duszki::Dead() {
 
 void Duszki::Show() {
 	SetTextColor(color);
-	SetCursorPosition(y, x);
+	SetPosCursor(y, x);
 	cout << icon;
 }
 

@@ -10,6 +10,6 @@ Palata::Palata(Game* const g)
 	: game(g) {}
 
 void Palata::Print() {
-	SetCursorPosition(x, y);
-	cout << game->GetLeveL(x, y);
+	SetPosCursor(x, y);
+	cout << game->GetLevel(x, y);
 }
