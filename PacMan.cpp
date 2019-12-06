@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-//#include <conio.h>
+#include <conio.h>
 #include <Windows.h>
 #include <cctype>
 #include <cstring>
@@ -138,7 +138,11 @@ void PacMan::PrintLives() {
 void PacMan::PrintKillScore() {
 	++killCount;
 	int scoreInc = 200 * (int)pow(2, killCount - 1);
-	int length = (int)floor(log10(scoreInc)) + 1;
+	
+	double ImValue = log10(scoreInc);
+	double ImValue2 = floor(ImValue);	//powinno byc gites
+
+	int length = (int)ImValue2;
 	int killX = x - 1;
 	if (x == 0) {
 		killX = x;
