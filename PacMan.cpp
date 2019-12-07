@@ -9,6 +9,8 @@
 #include <clocale>
 #include <cmath>
 #include <random>
+#include <string>
+
 
 #include "WartosciStale.h"
 
@@ -55,7 +57,7 @@ void PacMan::Move() {
 void PacMan::GetDirection() {
 	dir = 'x';
 	if (_kbhit()) {
-		dir = std::ctype::tolower(_getch());
+		dir = std::tolower(_getch());
 	}
 	if (!strchr(CONSTOL_CHARS, dir)) {
 		dir = dirOld;
@@ -147,8 +149,8 @@ void PacMan::PrintKillScore() {
 	if (x == 0) {
 		killX = x;
 	}
-	if (x > WITHOUT_COLISION_TILES - length) {
-		killX = WITHOUT_COLISION_TILES - length;
+	if (x > maxWidth - length) {
+		killX = maxWidth - length;
 	}
 	SetTextColor(CYAN);
 	SetPosCursor(y, killX);
